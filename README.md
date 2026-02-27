@@ -21,17 +21,6 @@ idv_multi_launcher.exe [数量]
 
 前往 [Releases](https://github.com/yfishyon/bd/releases) 页面下载最新版本的 `idv_multi_launcher.exe`。
 
-## 编译
-
-需要 `x86_64-w64-mingw32-g++` 交叉编译工具链：
-
-```bash
-chmod +x build.sh
-./build.sh
-```
-
-每次提交代码后，GitHub Actions 会自动编译并上传构建产物。打 tag（如 `v1.0.0`）后会自动创建 Release。
-
 ## ⚠️ 免责声明
 
 使用本工具多开游戏可能违反《第五人格》用户协议，存在**封号风险**。使用者需自行承担一切后果，作者不对因使用本工具导致的任何损失负责。

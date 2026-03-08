@@ -1,2 +1,35 @@
+#include <windows.h>
+#pragma code_page(65001)
+
+#define IDC_COUNT_EDIT      1001
+#define IDC_COUNT_SLIDER    1002
+#define IDC_PATH_EDIT       1003
+#define IDC_BROWSE_BTN      1004
+#define IDC_AUTO_DETECT_BTN 1005
+#define IDC_START_BTN       1006
+#define IDC_STATUS_TEXT     1007
+#define IDC_COUNT_STATIC    1008
+
 1 ICON "dwrg.ico"
 1 24 "idv_multi_launcher.manifest"
+
+101 DIALOGEX 10, 10, 400, 200
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "第五人格 多开器"
+FONT 9, "微软雅黑", 0, 0
+BEGIN
+    LTEXT           "启动数量:", IDC_COUNT_STATIC, 20, 20, 50, 15
+    EDITTEXT        IDC_COUNT_EDIT, 70, 18, 40, 15, ES_NUMBER
+    CONTROL         "", IDC_COUNT_SLIDER, "msctls_trackbar32", TBS_AUTOTICKS | TBS_BOTH | WS_TABSTOP, 120, 15, 150, 25
+    
+    LTEXT           "游戏路径:", -1, 20, 55, 50, 15
+    EDITTEXT        IDC_PATH_EDIT, 70, 53, 200, 15, ES_READONLY
+    PUSHBUTTON      "手动选择", IDC_BROWSE_BTN, 280, 52, 50, 17
+    PUSHBUTTON      "自动检测", IDC_AUTO_DETECT_BTN, 335, 52, 50, 17
+    
+    GROUPBOX        "状态", -1, 15, 85, 370, 40
+    LTEXT           "已就绪", IDC_STATUS_TEXT, 25, 100, 350, 20
+    
+    DEFPUSHBUTTON   "启动游戏", IDC_START_BTN, 120, 145, 80, 25
+    PUSHBUTTON      "退出", IDCANCEL, 200, 145, 80, 25
+END

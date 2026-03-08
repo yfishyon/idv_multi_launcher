@@ -26,8 +26,8 @@ jobs:
 
       - name: Build
         run: |
-          chmod +x build.sh
-          ./build.sh
+          x86_64-w64-mingw32-windres --codepage=65001 idv_multi_launcher.rc --output-format=coff -o idv_multi_launcher.res
+          x86_64-w64-mingw32-g++ idv_multi_launcher.cpp idv_multi_launcher.res -o idv_multi_launcher.exe -static -mwindows -lpsapi -ladvapi32 -lcomctl32 -finput-charset=UTF-8 -fexec-charset=UTF-8
 
       - name: Upload artifact
         uses: actions/upload-artifact@v6
@@ -41,12 +41,8 @@ jobs:
         with:
           files: idv_multi_launcher.exe
           body: |
-            ## ⚠️ 免责声明
             使用本工具多开游戏可能违反《第五人格》用户协议，存在**封号风险**。使用者需自行承担一切后果。
-
-            ## 下载说明
-            下载 `idv_multi_launcher.exe` 后直接运行即可。
-
+            
             详细使用方法请查看 [README.md](https://github.com/${{ github.repository }}/blob/main/README.md)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
